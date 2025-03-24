@@ -17,34 +17,5 @@ public class ComputerPage {
 
         return new DesktopsPage();
     }
-
-    public static class MainPage {
-
-        private final SelenideElement
-                RegistrationButton = $(".ico-register"),
-                ComputerButton = $$("ul.top-menu li").get(1),
-                LogOutButton = $(".ico-logout");
-
-        @Step("Нажать на кнопку регистрации")
-        public RegistrationPage clickRegistrationButton() {
-            RegistrationButton.click();
-
-            return new RegistrationPage();
-        }
-
-        @Step("Нажать на кнопку компьютеры")
-        public ComputerPage clickComputerButton() {
-            ComputerButton.click();
-
-            return new ComputerPage();
-        }
-        @Step("Нажать на кнопку выйти")
-        public MainPage clickLogOutButton() {
-            LogOutButton.click();
-
-            return new MainPage();
-        }
-
-    }
 }
 
