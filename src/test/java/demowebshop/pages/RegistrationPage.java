@@ -2,82 +2,82 @@ package demowebshop.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import net.datafaker.Faker;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
 public class RegistrationPage {
-private static final String SuccessfulRegistrationMessage = "Your registration completed";
+private static final String successfulRegistrationMessage = "Your registration completed";
 
     private final SelenideElement
-            MaleGenderButton = $("#gender-male"),
-            FirstNameLine = $("#FirstName"),
-            LastNameLine = $("#LastName"),
-            EmailLine = $("#Email"),
-            PasswordLine = $("#Password"),
-            ConfirmPasswordLine = $("#ConfirmPassword"),
-            RegisterButton = $("#register-button"),
-            SuccessfulRegistration = $(".result"),
-            ContinueButton = $(".button-1");
+            maleGenderButton = $("#gender-male"),
+            firstNameLine = $("#FirstName"),
+            lastNameLine = $("#LastName"),
+            emailLine = $("#Email"),
+            passwordLine = $("#Password"),
+            confirmPasswordLine = $("#ConfirmPassword"),
+            registerButton = $("#register-button"),
+            successfulRegistration = $(".result"),
+            continueButton = $(".button-1");
 
 
     @Step("Выбрать мужской пол")
     public RegistrationPage clickMaleGenderButton() {
-        MaleGenderButton.click();
+        maleGenderButton.click();
 
         return new RegistrationPage();
     }
 
     @Step("Ввести имя")
     public RegistrationPage setFirstName(String firstName) {
-        FirstNameLine.setValue(firstName);
+        firstNameLine.setValue(firstName);
 
         return this;
     }
 
     @Step("Ввести фамилию")
     public RegistrationPage setLastName(String lastName) {
-        LastNameLine.setValue(lastName);
+        lastNameLine.setValue(lastName);
 
         return this;
     }
 
     @Step("Ввести Email")
     public RegistrationPage setEmail(String email) {
-        EmailLine.setValue(email);
+        emailLine.setValue(email);
 
         return this;
     }
 
     @Step("Ввести Пароль")
     public RegistrationPage setPassword(String password) {
-        PasswordLine.setValue(password);
+        passwordLine.setValue(password);
 
         return this;
     }
 
     @Step("Ввести Пароль Повторно")
     public RegistrationPage setConfirmPassword(String password) {
-        ConfirmPasswordLine.setValue(password);
+        confirmPasswordLine.setValue(password);
 
         return this;
     }
     @Step("Нажать на кнопку регистрации")
     public RegistrationPage clickRegisterButton() {
-        RegisterButton.click();
+        registerButton.click();
 
         return this;
     }
     @Step("Проверить сообщение успешной регистрации")
     public RegistrationPage verifySuccessfulRegistration() {
-        SuccessfulRegistration.shouldHave(text(SuccessfulRegistrationMessage));
+        successfulRegistration.shouldHave(text(successfulRegistrationMessage));
 
         return this;
     }
     @Step("Нажать на кнопку продолжить")
-    public MainPage clickContinueButton() {
-        ContinueButton.click();
+    public ComputerPage.MainPage clickContinueButton() {
+        continueButton.click();
 
-        return new MainPage();
+        return new ComputerPage.MainPage();
     }
 }

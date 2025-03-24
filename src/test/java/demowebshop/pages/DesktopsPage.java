@@ -9,20 +9,20 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class DesktopsPage {
     private final SelenideElement
-            PageTitle = $("div.page-title"),
-            ExpensiveDesktops = $$("div.item-box").get(2).$(".button-2");
+            pageTitle = $("div.page-title"),
+            expensiveDesktops = $$("div.item-box").get(2).$(".button-2");
 
     @Step("Проверить заголовок страницы")
     public DesktopsPage verifyPageTitle() {
-        PageTitle.shouldHave(text("Desktops"));
+        pageTitle.shouldHave(text("Desktops"));
 
         return new DesktopsPage();
     }
 
     @Step("Выбрать дорогой компьютер")
 
-    public ProductPage GetExpensiveDesktops() {
-        ExpensiveDesktops.click();
+    public ProductPage getExpensiveDesktops() {
+        expensiveDesktops.click();
 
         return new ProductPage();
     }

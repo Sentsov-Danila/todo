@@ -1,21 +1,21 @@
 package demowebshop.tests;
 
-import demowebshop.pages.MainPage;
+import demowebshop.pages.ComputerPage;
 import org.junit.jupiter.api.Test;
 
 public class AddToCartTest extends TestBase {
-    private final MainPage mainPage = new MainPage();
+    private final ComputerPage.MainPage mainPage = new ComputerPage.MainPage();
 @Test
     void addToCartTest() {
         mainPage
                 .clickComputerButton()
                 .clickDesktopsButton()
                 .verifyPageTitle()
-                .GetExpensiveDesktops()
+                .getExpensiveDesktops()
                 .verifyPageTitleProduct()
                 .clickAddToCartButton()
                 .verifyAddToCart()
-                .OpenCartPage()
+                .openCartPage()
                 .verifyPageTitleCart()
                 .clickAgreeButton();
 

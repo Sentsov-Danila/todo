@@ -8,18 +8,19 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class CartPage {
     private final SelenideElement
-            PageTitleCart = $(".page-title"),
-            AgreeButton = $("#termsofservice");
+            pageTitleCart = $(".page-title"),
+            agreeButton = $("#termsofservice"),
+            checkoutButton = $("#checkout");
 
     @Step("Проверить заголовок страницы")
     public CartPage verifyPageTitleCart() {
-        PageTitleCart.shouldHave(text("Shopping cart"));
+        pageTitleCart.shouldHave(text("Shopping cart"));
         return new CartPage();
     }
 
     @Step("Нажать на кнопку согласия")
     public CartPage clickAgreeButton() {
-        AgreeButton.click();
+        agreeButton.click();
         return this;
     }
 }
