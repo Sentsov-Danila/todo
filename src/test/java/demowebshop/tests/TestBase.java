@@ -25,16 +25,17 @@ public class TestBase {
         String password = faker.internet().password();
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
+        String confirmPassword = password;
         String email = faker.internet().emailAddress();
         Selenide.open(mainPageURL, MainPage.class );
 
         mainPage.clickRegistrationButton()
-                .clickMaleGenderButton()
+                .clickRandomGenderButton()
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setEmail(email)
                 .setPassword(password)
-                .setConfirmPassword(password)
+                .setConfirmPassword(confirmPassword)
                 .clickRegisterButton()
                 .verifySuccessfulRegistration()
                 .clickContinueButton();

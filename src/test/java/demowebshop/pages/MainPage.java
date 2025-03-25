@@ -11,8 +11,6 @@ public class MainPage {
 
     private final SelenideElement
             registrationButton = $(".ico-register"),
-            computerButton = $$("ul.top-menu li").get(1),
-            apparelButton = $$("ul.top-menu li").get(3),
             logOutButton = $(".ico-logout");
 
     @Step("Нажать на кнопку регистрации")
