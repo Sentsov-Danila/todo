@@ -1,14 +1,17 @@
 package demowebshop.tests;
 
-import demowebshop.pages.ComputerPage;
+import demowebshop.pages.MainPage;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class AddToCartTest extends TestBase {
-    private final ComputerPage.MainPage mainPage = new ComputerPage.MainPage();
-@Test
+    private final MainPage mainPage = new MainPage();
+
+    @DisplayName("Проверка добавления товара в корзину")
+    @Test
     void addToCartTest() {
         mainPage
-                .clickComputerButton()
+                .clickOnProduct("Computers")
                 .clickDesktopsButton()
                 .verifyPageTitle()
                 .getExpensiveDesktops()

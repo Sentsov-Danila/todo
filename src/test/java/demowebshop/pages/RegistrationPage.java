@@ -75,9 +75,9 @@ private static final String successfulRegistrationMessage = "Your registration c
         return this;
     }
     @Step("Нажать на кнопку продолжить")
-    public ComputerPage.MainPage clickContinueButton() {
+    public MainPage clickContinueButton() {
         continueButton.click();
 
-        return new ComputerPage.MainPage();
+        return new MainPage();
     }
 }
