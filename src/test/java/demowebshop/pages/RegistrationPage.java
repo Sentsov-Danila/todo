@@ -96,7 +96,7 @@ private static final String successfulRegistrationMessage = "Your registration c
 
         return new MainPage();
     }
-    @Step ("Проверить сообщение некорректно введенного email")
+    @Step ("Проверить сообщение об ошибке")
     public RegistrationPage checkErrorMessege(String errorMessage) {
         $(byText(errorMessage)).shouldBe(visible);
         return this;

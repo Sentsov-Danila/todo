@@ -19,7 +19,7 @@ public class CatalogPage {
 
     @Step("Выбрать количество продуктов на странице: {count}")
     public CatalogPage selectProductsPerPage(int count) {
-        productDropdown.selectOptionContainingText(String.valueOf(count));
+        productDropdown.selectOption(String.valueOf(count));
 
         return this;
     }
