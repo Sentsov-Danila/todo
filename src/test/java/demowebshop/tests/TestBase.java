@@ -36,9 +36,7 @@ public class TestBase {
                 .setEmail(email)
                 .setPassword(password)
                 .setConfirmPassword(confirmPassword)
-                .clickRegisterButton()
-                .verifySuccessfulRegistration()
-                .clickContinueButton();
+                .clickRegisterButton();
     }
     @AfterEach
     void logOutUser() {

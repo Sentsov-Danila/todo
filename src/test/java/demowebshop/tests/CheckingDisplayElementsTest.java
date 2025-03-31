@@ -2,9 +2,10 @@ package demowebshop.tests;
 
 import demowebshop.pages.MainPage;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-
-public class СheckingDisplayElementsTest extends TestBase {
+@Tag("WebShop")
+public class CheckingDisplayElementsTest extends TestBase {
     private final MainPage mainPage = new MainPage();
     @Test
     @DisplayName("Проверка отоброжаемых элементов на странице (4,8,12)")

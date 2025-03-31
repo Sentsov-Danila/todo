@@ -6,12 +6,14 @@ import demowebshop.pages.MainPage;
 import demowebshop.pages.RegistrationPage;
 import net.datafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
-
+@Tag("WebShop")
 public class RegistrationErrorTest {
     private static final String registerPageURL = "https://demowebshop.tricentis.com/register";
     private final Faker faker = new Faker();
@@ -24,6 +26,7 @@ public class RegistrationErrorTest {
     }
 
     @ParameterizedTest()
+    @DisplayName("Проверка сообщений об ошибке регистрации")
     @MethodSource("provideInvalidData")
     void errorRegistrationTest(String firstName, String lastName, String email, String password, String confirmPassword, String errorMessage) {
         registrationPage
