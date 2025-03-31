@@ -23,6 +23,7 @@ public class RegistrationErrorTest {
     public void setUp() {
         Selenide.open(registerPageURL, RegistrationPage.class);
         Configuration.pageLoadTimeout = 100000;
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
 
     @ParameterizedTest()

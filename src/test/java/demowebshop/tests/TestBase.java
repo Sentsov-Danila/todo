@@ -18,6 +18,7 @@ public class TestBase {
     @BeforeAll
     static void setUp() {
         Configuration.pageLoadTimeout = 100000;
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
 
     @BeforeEach
