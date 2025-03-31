@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.stream.Stream;
 @Tag("WebShop")
@@ -24,6 +25,10 @@ public class RegistrationErrorTest {
         Selenide.open(registerPageURL, RegistrationPage.class);
         Configuration.pageLoadTimeout = 100000;
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
+        Configuration.browserCapabilities = capabilities;
     }
 
     @ParameterizedTest()
