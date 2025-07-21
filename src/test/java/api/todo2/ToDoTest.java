@@ -35,12 +35,17 @@ public class ToDoTest {
 
     @Test
     void loginTest() {
-        client.login("knkfodsledk@gmail.com", "123qweasdzxc");
+        String email = faker.internet().emailAddress();
+        String password = faker.internet().password();
+
+        client.register(email, password);
+
+        client.login(email, password);
     }
 
     @Test
     void createToDoTest() {
-        String title = "Войти в прайм";
+        String title = faker.book().title();
         client.createToDo(title, userId);
         List<ToDoResponse> userToDos = client.getUserToDos(userId);
         long count = userToDos.stream()
@@ -50,36 +55,45 @@ public class ToDoTest {
 
     @Test
     void editToDoTest() {
+        String title = faker.book().title();
+
         ToDoResponse task = client.createToDo(
                 "Абракадабра",
-                65490
+                userId
         );
         client.editToDo(
-                65490,
+                userId,
                 task.getTodo_id(),
                 "true",
-                "Джигурда"
+                title
         );
+        List<ToDoResponse> userToDo = client.getUserToDos(userId);
+        boolean exist = userToDo.stream().
+                anyMatch(toDoResponse -> toDoResponse.getTitle().equals(title));
+        assertThat(exist).as(title).isTrue();
+
     }
 
     @Test
     void deleteToDoTest() {
+        String title = faker.book().title();
+
         ToDoResponse task = client.createToDo(
-                "Пойти погулять",
-                65490
+                title,
+                userId
         );
         client.deleteToDo(
                 task.getUser_id(),
                 task.getTodo_id()
         );
+        List<ToDoResponse> userToDos = client.getUserToDos(userId);
+        long count = userToDos.stream()
+                .filter(toDo -> title.equals(toDo.getTitle())).count();
+        assertThat(count).isEqualTo(0);
     }
 
     @Test
     void logOutTest() {
-        client.login(
-                "knkfodsledk@gmail.com",
-                "123qweasdzxc"
-        );
         LogOutResponse response = client.logOut();
 
         assertThat(response.getSuccess()).isEqualTo("true");
@@ -87,7 +101,7 @@ public class ToDoTest {
 
     @Test
     void getUserToDosTest() {
-        List<ToDoResponse> response = client.getUserToDos(65490);
+        List<ToDoResponse> response = client.getUserToDos(userId);
         assertThat(response).isNotNull();
     }
 }
